@@ -4,6 +4,7 @@ import {
   IsEmail,
   Length,
   IsNumber,
+  IsPositive
 } from 'class-validator';
 import { PartialType, ApiProperty } from '@nestjs/swagger';
 import { Role } from '../../auth/models/roles.model';
@@ -55,7 +56,7 @@ export class CreateUserDto {
 
   @IsNumber()
   @IsNotEmpty()
-  @Length(3)
+  @IsPositive()
   @ApiProperty({
     description: 'The phonenumber of user, minimal length for example is 3',
     example: '3173463310',
