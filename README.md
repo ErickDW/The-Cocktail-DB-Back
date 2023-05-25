@@ -1,3 +1,5 @@
+<h1 align="center">The Cocktail DB Backend</h1>
+
 <p align="center">
   <a href="http://nestjs.com/" target="blank"><img src="https://nestjs.com/img/logo-small.svg" width="200" alt="Nest Logo" /></a>
 </p>
@@ -24,7 +26,7 @@
 
 ## Description
 
-[Nest](https://github.com/nestjs/nest) framework TypeScript starter repository.
+[Nest](https://github.com/nestjs/nest) framework TypeScript starter repository, at the end of the document you will find the information to download and run it locally.
 
 ## Installation
 
@@ -64,10 +66,80 @@ Nest is an MIT-licensed open source project. It can grow thanks to the sponsors 
 
 ## Stay in touch
 
-- Author - [Kamil Myśliwiec](https://kamilmysliwiec.com)
-- Website - [https://nestjs.com](https://nestjs.com/)
-- Twitter - [@nestframework](https://twitter.com/nestframework)
+-  Author - [Kamil Myśliwiec](https://kamilmysliwiec.com)
+-  Website - [https://nestjs.com](https://nestjs.com/)
+-  Twitter - [@nestframework](https://twitter.com/nestframework)
 
 ## License
 
 Nest is [MIT licensed](LICENSE).
+
+## This project documentation
+
+Example of use and documentation made with the help of Swagger [read more here](https://backend-social-wires.vercel.app/docs) or download this project install the dependencies and access the documentation from [localhost:port/docs](http://localhost:3000/docs).
+
+## Run the project in localhost
+
+First remember to run the command that installs the dependencies.
+
+```bash
+$ npm install || $ npm i
+```
+
+afterwards you must create the or the file with the environment variables, as a good practice these files should not be uploaded to a repository, but with a sense of learning the environment variables files are found in the Plus folder of this repository, you can copy them and paste them in the main section (the general folder of the project, in the same position of this readme) or you can create them with the following variables for example.
+
+```bash
+DATABASE_NAME = my_db
+DATABASE_PORT = 1000
+API_KEY = 'ABC123'
+PORT = 3000
+JWT_SECRET = 'CocktailSecretShhhh'
+
+MONGO_INITDB_ROOT_USERNAME = mongo
+MONGO_INITDB_ROOT_PASSWORD = secretCocktail
+MONGO_DB = cocktail
+MONGO_HOST = localhost:27017
+MONGO_CONNECTION = mongodb
+```
+
+excellent, we are almost done, now to use the database in the case of this project made in MongoDB, you must upload the docker, remember that in addition to having docker installed, it must also be active, (as an extra recommendation you can download the extension for .yml files to better appreciate the format inside the docker-compose.yml [YAML](https://marketplace.visualstudio.com/items?itemName=redhat.vscode-yaml)).
+
+ok once you are sure you have the docker ready, this command.
+
+```bash
+# The -d is for it to run in the background
+$ docker-compose up -d my-mongo
+
+#-----------------------
+
+# This command is to see if there is a docker up
+$ docker-compose ps
+
+# This command is to stop the docker process
+$ docker-compose down
+```
+
+perfect now for convenience to be able to connect to the database we can use Mongo Compass and thus have a UI to manage it if you do not have it installed look for it in [MongoDB Compass Download (GUI)](https://www.mongodb.com/try/download/compass).
+
+--------------------------
+Change line 44 in main.ts 
+```bash
+$ origin: ['http://localhost:4200'],
+```
+
+Ready we have finished now we only have to execute the run command and we would have our back running locally.
+
+```bash
+# run local
+$ npm run start:dev
+```
+
+## Notes
+- This project serves as an example of a backend where users are created, information is connected and stored with MongoDB, a non-relational database, an example of roles, and the use of a JWT for logging.
+
+- In the Postman folder you will find a postman document with the get, post, put and delete of the project.
+
+- The project has a frontend section made with the Angular framework and you can see its repository here [Frontend Cocktail DB](https://github.com/ErickDW/The-Cocktail-DB-Front)
+
+## Author
+-  Kenpo Erickson Cataño Gil - [Kenpo](https://kenpo-v.web.app/)
